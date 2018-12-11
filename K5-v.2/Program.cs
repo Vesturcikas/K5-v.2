@@ -101,7 +101,7 @@ namespace K5_v._2
                 komplektuKoduSarasas.Add(data[1]);
             }
 
-            Komplektai komplektaiA = new Komplektai(pardavejai[0], komplektuSarasasA);
+            KomplektuSarasas komplektaiA = new KomplektuSarasas(pardavejai[0], komplektuSarasasA);
             //komplektaiA.Isvedimas();
 
             Console.WriteLine();
