@@ -56,6 +56,61 @@ namespace K5_v._2
             Console.WriteLine();
 
             //suformuotas komplektu detaliu-analogu sarasas
+
+            //sukuriamas komplektu sarasas is parengto komplektu failo
+            //atidaromas komplektu failas .csv
+
+            string path = null;
+            Console.WriteLine("Nurodykite is kurio .csv failo nuskaityti komplektus:");
+            Console.WriteLine();
+
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    path = ofd.FileName;
+                }
+            }
+
+            System.IO.StreamReader reader = new System.IO.StreamReader(path);
+
+            string line = null;
+            List<Komplektas> komplektuSarasasA = new List<Komplektas>();
+            List<string> komplektuKoduSarasas = new List<string>();
+
+            while ((line = reader.ReadLine()) != null)
+            {
+                var data = line.Split(';');
+                List<string> detkodai = new List<string>();
+                List<int> detkiek = new List<int>();
+
+                for (int i = 3; i < data.Length; i++)
+                {
+                    if (i % 2 == 0)
+                    {
+                        detkiek.Add(Convert.ToInt32(data[i]));
+                    }
+                    else
+                    {
+                        detkodai.Add(data[i]);
+                    }
+                }
+                Komplektas kompl_i = new Komplektas(data[0], data[1], data[2], detkodai, detkiek);
+                kompl_i.PridetiAnalogus(komplDet_AnaloguSar);
+                komplektuSarasasA.Add(kompl_i);
+                komplektuKoduSarasas.Add(data[1]);
+            }
+
+            Komplektai komplektaiA = new Komplektai(pardavejai[0], komplektuSarasasA);
+            //komplektaiA.Isvedimas();
+
+            Console.WriteLine();
+            Console.WriteLine("Komplektu sarasas suformuotas.");
+            Console.WriteLine();
+
+            //suformuotas komplektu sarasas
+
+
         }
     }
 }
