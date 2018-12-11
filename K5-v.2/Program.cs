@@ -49,8 +49,7 @@ namespace K5_v._2
                 komplDet_Analog.Isvedimas();
             }
 
-            //KomplektoDetaliuSarasas kds = new KomplektoDetaliuSarasas("Bendras", komplDet_AnaloguSar);
-
+            
             Console.WriteLine();
             Console.WriteLine("Bendras komplektu detaliu-analogu sarasas suformuotas.");
             Console.WriteLine();
@@ -96,13 +95,12 @@ namespace K5_v._2
                     }
                 }
                 Komplektas kompl_i = new Komplektas(data[0], data[1], data[2], detkodai, detkiek);
-                kompl_i.PridetiAnalogus(komplDet_AnaloguSar);
                 komplektuSarasasA.Add(kompl_i);
                 komplektuKoduSarasas.Add(data[1]);
             }
 
             KomplektuSarasas komplektaiA = new KomplektuSarasas(pardavejai[0], komplektuSarasasA);
-            //komplektaiA.Isvedimas();
+            komplektaiA.Isvedimas();
 
             Console.WriteLine();
             Console.WriteLine("Komplektu sarasas suformuotas.");
