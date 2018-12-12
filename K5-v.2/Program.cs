@@ -159,7 +159,20 @@ namespace K5_v._2
 
                         if(item.ArDetaleIsKomplektuSaraso(komplektuKoduSarasas, item.DetlesKodas))
                         {
-                            pardKomplSarasas.Add(item);
+                            foreach (var kint in pardKomplSarasas) //petikrinama ar jau yra toks komplektas toje pacioje saskaitoje
+                            {
+                                if (kint.DetlesKodas==item.DetlesKodas && kint.DetalesSaskaitosNr == item.DetalesSaskaitosNr)
+                                {
+                                    kint.PerskaiciuotiDetKieki(item.DetalesKiekis);
+                                }
+                                else
+                                {
+                                    pardKomplSarasas.Add(item);
+                                }
+
+                            }
+
+                            
                         }
                     }
                 }

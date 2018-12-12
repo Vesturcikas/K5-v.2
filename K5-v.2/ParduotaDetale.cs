@@ -54,6 +54,12 @@ namespace K5_v._2
             return zyma;
         }
 
+        public void PerskaiciuotiDetKieki(double kiek)
+        {
+            DetalesKiekis += kiek; 
+        }
+
+
         public void PazymetiDetale(string zyma)
         {
             DetalesZyma = zyma;

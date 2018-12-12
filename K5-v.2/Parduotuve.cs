@@ -55,14 +55,13 @@ namespace K5_v._2
 
             foreach (var item in PardavejoKomplSarasas)
             {
-                
                 List<ParduotaDetale> sfdet = new List<ParduotaDetale>();
 
-                foreach (var itemp in PardavejoDetaliuSarasas)
+                foreach (var kint in PardavejoDetaliuSarasas)
                 {
-                    if (itemp.DetalesSaskaitosNr == item.DetalesSaskaitosNr)
+                    if (kint.DetalesSaskaitosNr == item.DetalesSaskaitosNr)
                     {
-                        sfdet.Add(itemp);
+                        sfdet.Add(kint);
                     }
                 }
                 
