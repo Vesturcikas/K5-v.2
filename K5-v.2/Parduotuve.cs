@@ -12,6 +12,7 @@ namespace K5_v._2
         public List<ParduotaDetale> PardavejoDetaliuSarasas { get; }
         public List<ParduotaDetale> PardavejoKomplSarasas { get; }
         public List<KomplektoSF> PardavejoKomplektuSFSarasas { get; private set; }
+        public double PardavejoKomplektuSuma { get; private set; }
 
         public Parduotuve(string pardavPav, List<ParduotaDetale> pardavDetSar, List<ParduotaDetale> pardavKomplSar)
         {
@@ -69,6 +70,19 @@ namespace K5_v._2
             }
 
             PardavejoKomplektuSFSarasas = kmplSfSar;
+        }
+
+        public void KomplektuSuma()
+        {
+            double ksuma = 0;
+
+            foreach (var item in PardavejoKomplSarasas)
+            {
+                ksuma += item.DetalesKiekis;
+            }
+
+            PardavejoKomplektuSuma = ksuma;
+
         }
 
 
