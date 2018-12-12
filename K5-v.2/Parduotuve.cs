@@ -11,7 +11,6 @@ namespace K5_v._2
         public string PardavejoPavad { get; }
         public List<ParduotaDetale> PardavejoDetaliuSarasas { get; }
         public List<ParduotaDetale> PardavejoKomplSarasas { get; }
-       
         public List<KomplektoSF> PardavejoKomplektuSFSarasas { get; private set; }
 
         public Parduotuve(string pardavPav, List<ParduotaDetale> pardavDetSar, List<ParduotaDetale> pardavKomplSar)
@@ -56,7 +55,7 @@ namespace K5_v._2
 
             foreach (var item in PardavejoKomplSarasas)
             {
-                Komplektas orgkompl = new Komplektas();
+                
                 List<ParduotaDetale> sfdet = new List<ParduotaDetale>();
 
                 foreach (var itemp in PardavejoDetaliuSarasas)
@@ -66,19 +65,11 @@ namespace K5_v._2
                         sfdet.Add(itemp);
                     }
                 }
-                foreach (var itemj in PardavejoKomplOrginalai)
-                {
-                    if (item.DetlesKodas == itemj.KomplKodas)
-                    {
-                        orgkompl = itemj;
-                        break;
-                    }
-                }
-
+                
                 KomplektoSF kmplsf = new KomplektoSF(item.DetalesNr, item.DetlesKodas, item.DetalesKiekis, item.DetalesSaskaitosNr, sfdet);
                 kmplSfSar.Add(kmplsf);
                 //kmplsf.SFKomplektoKiekioperskaiciavimas();
-                kmplsf.SFKomplektiskumoSkaiciavimas(orgkompl);
+                //kmplsf.SFKomplektiskumoSkaiciavimas(orgkompl);
             }
 
             PardavejoKomplektuSFSarasas = kmplSfSar;

@@ -125,6 +125,7 @@ namespace K5_v._2
 
             List<ParduotaDetale> pardDetSarasasA = new List<ParduotaDetale>();
             List<ParduotaDetale> pardKomplSarasasA = new List<ParduotaDetale>();
+            
 
             System.IO.StreamReader reader2 = new System.IO.StreamReader(path2);
             string line3 = null;
@@ -132,6 +133,7 @@ namespace K5_v._2
 
             while ((line3 = reader2.ReadLine()) != null) //Suformuojamas visu parduotu detaliu ir parduotu komplektu sarasai
             {
+                
                 ParduotaDetale pardDet = new ParduotaDetale(line3);
                 pardDetSarasasA.Add(pardDet);
                 if (pardDet.ArDetaleIsKomplektuSaraso(komplektuKoduSarasas, pardDet.DetlesKodas))
@@ -141,32 +143,28 @@ namespace K5_v._2
                 pardDet.Isvedimas();
             }
 
-            Parduotuve pds = new ParduotuDetaliuSarasas(pardavejai[0], pardDetSarasasA, pardKomplSarasasA, komplektuSarasasA);
+            Parduotuve pds = new Parduotuve(pardavejai[0], pardDetSarasasA, pardKomplSarasasA);
 
             for (int i = 1; i < pardavejai.Count; i++)//suformuojami pardaveju parduotu detaliu sarasai
             {
                 List<ParduotaDetale> pardDetSarasas = new List<ParduotaDetale>();
                 List<ParduotaDetale> pardKomplSarasas = new List<ParduotaDetale>();
-                List<Komplektas> pardKomplOrgin = new List<Komplektas>();
 
                 foreach (var item in pardDetSarasasA)
                 {
-                    int indeksas = -1;
-
+                    
                     if (pardavejai[i] == item.DetalesPardavejas)
                     {
                         pardDetSarasas.Add(item);
-                        indeksas = item.ArDetaleIsKomplektuSaraso(komplektuSarasasA, item.DetlesKodas);
 
-                        if (indeksas >= 0)
+                        if(item.ArDetaleIsKomplektuSaraso(komplektuKoduSarasas, item.DetlesKodas))
                         {
                             pardKomplSarasas.Add(item);
-                            pardKomplOrgin.Add(komplektuSarasasA[indeksas]);
                         }
                     }
                 }
 
-                pds = new ParduotuDetaliuSarasas(pardavejai[i], pardDetSarasas, pardKomplSarasas, pardKomplOrgin);
+                pds = new Parduotuve(pardavejai[i], pardDetSarasas, pardKomplSarasas);
                 pds.KmplektoSFformavimas();
                 //pds.Isvedimas();
                 pds.SFisvedimas();
