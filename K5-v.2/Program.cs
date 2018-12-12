@@ -108,6 +108,43 @@ namespace K5_v._2
 
             //suformuotas komplektu sarasas
 
+            //Nuskaitomi parduotu detaliu duomenys is csv failo
+            //ieskomi parduoti komplektai
+
+            string path2 = null;
+            Console.WriteLine("Nurodykite is kurio failo nuskaityti perduotas detales:");
+            Console.WriteLine();
+
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    path2 = ofd.FileName;
+                }
+            }
+
+            List<ParduotaDetale> pardDetSarasasA = new List<ParduotaDetale>();
+            List<ParduotaDetale> pardKomplSarasasA = new List<ParduotaDetale>();
+
+            System.IO.StreamReader reader2 = new System.IO.StreamReader(path2);
+            string line3 = null;
+            Console.WriteLine();
+
+            while ((line3 = reader2.ReadLine()) != null) //Suformuojamas visu parduotu detaliu ir parduotu komplektu sarasai
+            {
+                ParduotaDetale pardDet = new ParduotaDetale(line3);
+                pardDetSarasasA.Add(pardDet);
+                if (pardDet.ArDetaleIsKomplektuSaraso(komplektuKoduSarasas, pardDet.DetlesKodas))
+                {
+                    pardKomplSarasasA.Add(pardDet);
+                }
+                pardDet.Isvedimas();
+            }
+
+
+
+
+
 
         }
     }
