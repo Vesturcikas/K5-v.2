@@ -19,6 +19,11 @@ namespace K5_v._2
         public double DetalesSuma { get; }
         public string DetalesZyma { get; private set; }
 
+        public ParduotaDetale()
+        {
+
+        }
+
         public ParduotaDetale(string line3)
         {
             var data = line3.Split(';');

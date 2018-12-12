@@ -18,10 +18,15 @@ namespace K5_v._2
             PardavejoPavad = pardavPav;
             PardavejoDetaliuSarasas = pardavDetSar;
             PardavejoKomplSarasas = pardavKomplSar;
-            
         }
 
-        public void Isvedimas()
+        public Parduotuve(string pardavPav, List<ParduotaDetale> pardavDetSar)
+        {
+            PardavejoPavad = pardavPav;
+            PardavejoDetaliuSarasas = pardavDetSar;
+        }
+
+        public void ParduotuvesDetIsvedimas()
         {
             Console.WriteLine("{0} parduotos detales:", PardavejoPavad);
 
@@ -39,17 +44,11 @@ namespace K5_v._2
 
             foreach (var item in PardavejoKomplektuSFSarasas)
             {
-                Console.WriteLine("Sakatoje {0} rastas komplektas: {1}, kiekis {2} vnt. Saskaitos komplektiskumas: {3}.", item.SFNumeris, item.SFKomplektoKodas, item.SFKomplektoKiekis, item.SFKomplektiskumas);
-                Console.WriteLine("Saskatoje esancios detales:");
-                foreach (var itemp in item.SFDetales)
-                {
-                    Console.WriteLine(itemp.DetalesNr + " " + itemp.DetlesKodas + " " + itemp.DetalesKiekis + " " + itemp.DetalesMatas + " " + itemp.DetalesZyma);
-                }
-                Console.WriteLine();
+                item.IsvedimasSF();
             }
         }
 
-        public void KmplektoSFformavimas()
+        public void KmplektuSFformavimas()
         {
             List<KomplektoSF> kmplSfSar = new List<KomplektoSF>();
 
@@ -64,14 +63,19 @@ namespace K5_v._2
                         sfdet.Add(kint);
                     }
                 }
-                
+
                 KomplektoSF kmplsf = new KomplektoSF(item.DetalesNr, item.DetlesKodas, item.DetalesKiekis, item.DetalesSaskaitosNr, sfdet);
                 kmplSfSar.Add(kmplsf);
-                //kmplsf.SFKomplektoKiekioperskaiciavimas();
-                //kmplsf.SFKomplektiskumoSkaiciavimas(orgkompl);
             }
 
             PardavejoKomplektuSFSarasas = kmplSfSar;
         }
+
+
+
+
+
+
+
     }
 }

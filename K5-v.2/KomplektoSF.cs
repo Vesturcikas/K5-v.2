@@ -34,8 +34,8 @@ namespace K5_v._2
             }
             Console.WriteLine();
         }
-        /*
-        public void SFKomplektiskumoSkaiciavimas(Komplektas orgkompl)
+       
+        public void SFKomplektiskumoSkaiciavimas()
         {
             double kmpl = 0;
             double kmplsk = 0;
@@ -106,6 +106,6 @@ namespace K5_v._2
 
             SFKomplektiskumas = kmpl;
 
-        }*/
+        }
     }
 }
