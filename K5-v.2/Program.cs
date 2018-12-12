@@ -155,25 +155,17 @@ namespace K5_v._2
                     
                     if (pardavejai[i] == item.DetalesPardavejas)
                     {
-                        pardDetSarasas.Add(item);
 
                         if(item.ArDetaleIsKomplektuSaraso(komplektuKoduSarasas, item.DetlesKodas))
                         {
-                            foreach (var kint in pardKomplSarasas) //petikrinama ar jau yra toks komplektas toje pacioje saskaitoje
-                            {
-                                if (kint.DetlesKodas==item.DetlesKodas && kint.DetalesSaskaitosNr == item.DetalesSaskaitosNr)
-                                {
-                                    kint.PerskaiciuotiDetKieki(item.DetalesKiekis);
-                                }
-                                else
-                                {
-                                    pardKomplSarasas.Add(item);
-                                }
-
-                            }
-
-                            
+                           pardKomplSarasas.Add(item); 
                         }
+                        else
+                        {
+                            pardDetSarasas.Add(item);
+                        }
+
+
                     }
                 }
 

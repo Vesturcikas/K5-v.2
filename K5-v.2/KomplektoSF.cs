@@ -27,7 +27,7 @@ namespace K5_v._2
         public void IsvedimasSF()
         {
             Console.WriteLine("Sakatoje {0} rastas komplektas: {1}, kiekis {2} vnt. Saskaitos komplektiskumas: {3}.", SFNumeris, SFKomplektoKodas, SFKomplektoKiekis, SFKomplektiskumas);
-            Console.WriteLine("Saskatoje esancios detales:");
+            Console.WriteLine("Kitos saskaitoje esancios detales:");
             foreach (var item in SFDetales)
             {
                 Console.WriteLine("{0}; {1}; {2}; {3}; {4}", item.DetalesNr, item.DetlesKodas, item.DetalesKiekis, item.DetalesMatas, item.DetalesZyma);
