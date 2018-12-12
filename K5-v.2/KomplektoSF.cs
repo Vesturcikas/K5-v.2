@@ -34,8 +34,8 @@ namespace K5_v._2
             }
             Console.WriteLine();
         }
-       /*
-        public void SFKomplektiskumoSkaiciavimas()
+       
+        public void SFKomplektiskumoSkaiciavimas(Komplektas orgkompl, List<KomplektoDetale> analogai)
         {
             double kmpl = 0;
             double kmplsk = 0;
@@ -60,7 +60,7 @@ namespace K5_v._2
                     else
                     {
                         string detkod = orgkompl.KomplDetKodai[i];
-                        foreach (var item in orgkompl.KomplAnalogai)
+                        foreach (var item in analogai)
                         {
                             if (detkod == item.KomplektoDetalesKodas)
                             {
@@ -106,6 +106,6 @@ namespace K5_v._2
 
             SFKomplektiskumas = kmpl;
 
-        }*/
+        }
     }
 }

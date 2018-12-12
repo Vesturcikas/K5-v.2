@@ -82,9 +82,44 @@ namespace K5_v._2
             }
 
             PardavejoKomplektuSuma = ksuma;
-
         }
 
+        public void Komplektiskumas(List<Komplektas> orgkomplsar, List<KomplektoDetale> analogsar)
+        {
+            Komplektas orgkompl = new Komplektas();
+            List<KomplektoDetale> analogai = new List<KomplektoDetale>();
+
+            foreach (var item in PardavejoKomplektuSFSarasas)
+            {
+                for (int i = 0; i < orgkomplsar.Count; i++)
+                {
+                    if (item.SFKomplektoKodas==orgkomplsar[i].KomplKodas)
+                    {
+                        orgkompl = orgkomplsar[i];
+
+                        foreach (var kint in orgkompl.KomplDetKodai)
+                        {
+                            for (int j = 0; j < analogsar.Count; j++)
+                            {
+                                if (kint==analogsar[i].KomplektoDetalesKodas)
+                                {
+                                    analogai.Add(analogsar[i]);
+                                    break;
+                                }
+                            }
+                        }
+
+                        item.SFKomplektiskumoSkaiciavimas(orgkompl, analogai);
+
+
+
+                        break;
+                    }
+                }
+
+            }
+
+        }
 
 
 

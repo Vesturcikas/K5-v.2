@@ -178,6 +178,7 @@ namespace K5_v._2
             foreach (var item in parduotuves)
             {
                 item.KomplektuSuma();
+                item.Komplektiskumas(komplektuSarasasA, komplDet_AnaloguSar);
                 Console.WriteLine();
                 Console.WriteLine("Per " + item.PardavejoPavad + " parduota " + item.PardavejoKomplektuSuma + " vnt. komplektu.");
             }
