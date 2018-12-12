@@ -48,6 +48,7 @@
     <Compile Include="KomplektoDetale.cs" />
     <Compile Include="KomplektuSarasas.cs" />
     <Compile Include="ParduotaDetale.cs" />
+    <Compile Include="Parduotuve.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -141,7 +141,43 @@ namespace K5_v._2
                 pardDet.Isvedimas();
             }
 
+            Parduotuve pds = new ParduotuDetaliuSarasas(pardavejai[0], pardDetSarasasA, pardKomplSarasasA, komplektuSarasasA);
 
+            for (int i = 1; i < pardavejai.Count; i++)//suformuojami pardaveju parduotu detaliu sarasai
+            {
+                List<ParduotaDetale> pardDetSarasas = new List<ParduotaDetale>();
+                List<ParduotaDetale> pardKomplSarasas = new List<ParduotaDetale>();
+                List<Komplektas> pardKomplOrgin = new List<Komplektas>();
+
+                foreach (var item in pardDetSarasasA)
+                {
+                    int indeksas = -1;
+
+                    if (pardavejai[i] == item.DetalesPardavejas)
+                    {
+                        pardDetSarasas.Add(item);
+                        indeksas = item.ArDetaleIsKomplektuSaraso(komplektuSarasasA, item.DetlesKodas);
+
+                        if (indeksas >= 0)
+                        {
+                            pardKomplSarasas.Add(item);
+                            pardKomplOrgin.Add(komplektuSarasasA[indeksas]);
+                        }
+                    }
+                }
+
+                pds = new ParduotuDetaliuSarasas(pardavejai[i], pardDetSarasas, pardKomplSarasas, pardKomplOrgin);
+                pds.KmplektoSFformavimas();
+                //pds.Isvedimas();
+                pds.SFisvedimas();
+            }
+
+
+
+
+            // Keep the console window open in debug mode.
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
 
 
 
