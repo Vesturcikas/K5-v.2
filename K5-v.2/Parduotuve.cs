@@ -141,12 +141,30 @@ namespace K5_v._2
                 }
             }
 
-            System.IO.StreamWriter file2 = new System.IO.StreamWriter(path1, false);
+            System.IO.StreamWriter file = new System.IO.StreamWriter(path1, false);
 
-            string lineirasymas = "*";
+            //string lineirasymas = "Pardavejo: " + PardavejoPavad + " komplektines saskaitos fakturos ";
 
-            file2.WriteLine(lineirasymas);
-            file2.Close();
+            //string lineirasymas = "++++";
+
+            //file.WriteLine(lineirasymas);
+
+           file.WriteLine("Pardavejo: " + PardavejoPavad + " komplektines saskaitos fakturos ");
+            file.Close();
+            foreach (var item in PardavejoKomplektuSFSarasas)
+            {
+                item.SpausdinimasSF(path1);
+                
+                //file.WriteLine();
+
+                /*foreach (var itemp in PardavejoKomplektuSFSarasas)
+                {
+                    item.IsvedimasSF();
+                }*/
+            }
+
+            //file.WriteLine(lineirasymas);
+            //file.Close();
 
             Console.WriteLine("Duomenys surasyti :)");
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace K5_v._2
 {
@@ -33,6 +34,20 @@ namespace K5_v._2
                 Console.WriteLine("{0}; {1}; {2}; {3}; {4}", item.DetalesNr, item.DetlesKodas, item.DetalesKiekis, item.DetalesMatas, item.DetalesZyma);
             }
             Console.WriteLine();
+        }
+
+      public void SpausdinimasSF(string path1)
+        {
+            System.IO.StreamWriter file = new System.IO.StreamWriter(path1,true);
+
+            file.WriteLine("Sakatoje {0} rastas komplektas: {1}, kiekis {2} vnt. Saskaitos komplektiskumas: {3}.", SFNumeris, SFKomplektoKodas, SFKomplektoKiekis, SFKomplektiskumas);
+            file.WriteLine("Kitos saskaitoje esancios detales:");
+            foreach (var item in SFDetales)
+            {
+                file.WriteLine("{0}; {1}; {2}; {3}; {4}", item.DetalesNr, item.DetlesKodas, item.DetalesKiekis, item.DetalesMatas, item.DetalesZyma);
+            }
+            file.WriteLine();
+            file.Close();
         }
        
         public void SFKomplektiskumoSkaiciavimas(Komplektas orgkompl, List<KomplektoDetale> analogai)
