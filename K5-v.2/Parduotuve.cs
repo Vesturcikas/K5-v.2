@@ -13,6 +13,7 @@ namespace K5_v._2
         public List<ParduotaDetale> PardavejoKomplSarasas { get; }
         public List<KomplektoSF> PardavejoKomplektuSFSarasas { get; private set; }
         public double PardavejoKomplektuSuma { get; private set; }
+        public double PardavejoKomplektuKomplektiskumas { get; private set; }
 
         public Parduotuve(string pardavPav, List<ParduotaDetale> pardavDetSar, List<ParduotaDetale> pardavKomplSar)
         {
@@ -88,6 +89,7 @@ namespace K5_v._2
         {
             Komplektas orgkompl = new Komplektas();
             List<KomplektoDetale> analogai = new List<KomplektoDetale>();
+            double pardkompl = 0;
 
             foreach (var item in PardavejoKomplektuSFSarasas)
             {
@@ -101,9 +103,9 @@ namespace K5_v._2
                         {
                             for (int j = 0; j < analogsar.Count; j++)
                             {
-                                if (kint==analogsar[i].KomplektoDetalesKodas)
+                                if (kint==analogsar[j].KomplektoDetalesKodas)
                                 {
-                                    analogai.Add(analogsar[i]);
+                                    analogai.Add(analogsar[j]);
                                     break;
                                 }
                             }
@@ -111,13 +113,15 @@ namespace K5_v._2
 
                         item.SFKomplektiskumoSkaiciavimas(orgkompl, analogai);
 
-
-
                         break;
                     }
                 }
 
+                pardkompl += item.SFKomplektoKiekis * item.SFKomplektiskumas;
+
             }
+
+            PardavejoKomplektuKomplektiskumas = pardkompl / PardavejoKomplektuSuma;
 
         }
 

@@ -167,7 +167,7 @@ namespace K5_v._2
                 pds = new Parduotuve(pardavejai[i], pardDetSarasas, pardKomplSarasas);
                 pds.KmplektuSFformavimas();
                 //pds.ParduotuvesDetIsvedimas();
-                pds.SFisvedimas();
+                //pds.SFisvedimas();
 
                 parduotuves.Add(pds);
 
@@ -180,7 +180,10 @@ namespace K5_v._2
                 item.KomplektuSuma();
                 item.Komplektiskumas(komplektuSarasasA, komplDet_AnaloguSar);
                 Console.WriteLine();
-                Console.WriteLine("Per " + item.PardavejoPavad + " parduota " + item.PardavejoKomplektuSuma + " vnt. komplektu.");
+                Console.WriteLine("Per " + item.PardavejoPavad + " parduota " + item.PardavejoKomplektuSuma + " vnt. komplektu. Komplektiskumas = "
+                    +item.PardavejoKomplektuKomplektiskumas);
+                Console.WriteLine();
+                item.SFisvedimas();
             }
 
 

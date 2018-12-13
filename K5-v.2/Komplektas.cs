@@ -12,7 +12,6 @@ namespace K5_v._2
         public string KomplKodas { get; }
         public string KomplPavad { get; }
         public List<string> KomplDetKodai { get; }
-       
         public List<int> KomplDetKiekiai { get; }
 
         public Komplektas(string komplid, string komplkodas, string komplpavad, List<string> kompldetkodai, List<int> kompldetkiekiai)
@@ -44,10 +43,6 @@ namespace K5_v._2
                 Console.Write(item + "; ");
             }
             Console.WriteLine();
-            
-            
         }
-
-        
     }
 }
