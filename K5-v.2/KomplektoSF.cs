@@ -78,13 +78,11 @@ namespace K5_v._2
 
                     if (lygus_kodai)
                     {
-                        if (SFDetales[j].DetalesKiekis / (SFKomplektoKiekis * orgkompl.KomplDetKiekiai[i])>1)
+                        komplj = SFDetales[j].DetalesKiekis / (SFKomplektoKiekis * orgkompl.KomplDetKiekiai[i]);
+
+                        if (komplj > 1)
                         {
                             komplj = 1;
-                        }
-                        else
-                        {
-                            komplj = SFDetales[j].DetalesKiekis / (SFKomplektoKiekis * orgkompl.KomplDetKiekiai[i]);
                         }
 
                         kompljsvoris = SFDetales[j].DetalesKiekis;
@@ -92,7 +90,6 @@ namespace K5_v._2
                         komplsvorsar.Add(kompljsvoris);
                         SFDetales[j].PazymetiDetale(zyma);
                     }
-
                 }
             }
 

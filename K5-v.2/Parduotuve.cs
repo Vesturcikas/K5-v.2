@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+
 
 namespace K5_v._2
 {
@@ -125,7 +127,31 @@ namespace K5_v._2
 
         }
 
+        public void Spausdinimas()
+        {
+            Console.WriteLine("Nurodykite .csv faila i kuri surasyti {0} duomenys:", PardavejoPavad);
 
+            string path1 = null;
+
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    path1 = ofd.FileName;
+                }
+            }
+
+            System.IO.StreamWriter file2 = new System.IO.StreamWriter(path1, false);
+
+            string lineirasymas = "*";
+
+            file2.WriteLine(lineirasymas);
+            file2.Close();
+
+            Console.WriteLine("Duomenys surasyti :)");
+
+
+        }
 
 
 

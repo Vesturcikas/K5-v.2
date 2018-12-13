@@ -12,6 +12,7 @@ namespace K5_v._2
         [STAThread]
         static void Main(string[] args)
         {
+            /*
             //Pardaveju sarasas
             List<string> pardavejai = new List<string> { "Autokurtas", "KN-Serv", "KN-Real", "KL-Serv", "KL-Real", "SL-Serv", "SL-Real", "VL-Serv", "VL-Real" };
 
@@ -170,7 +171,6 @@ namespace K5_v._2
                 //pds.SFisvedimas();
 
                 parduotuves.Add(pds);
-
             }
 
             //Komplektiskumu skaiciavimai
@@ -186,10 +186,29 @@ namespace K5_v._2
                 item.SFisvedimas();
             }
 
+            //Komplektiskumo skaiciavimo pabaiga-----------------------
+            */
+
+            //Bandome surasyti dauomenys i faila
 
 
+            Console.WriteLine("Nurodykite faila i kuri surasyti duomenis: ");
+
+            
+
+            //System.IO.StreamWriter writer1 = new System.IO.StreamWriter(path1);
+
+            
 
 
+            System.IO.StreamWriter file2 = new System.IO.StreamWriter(path1,false);
+
+            string lineirasymas = "*";
+
+            file2.WriteLine(lineirasymas);
+            file2.Close();
+
+            Console.WriteLine("Duomenys surasyti :)");
 
             // Keep the console window open in debug mode.
             Console.WriteLine("Press any key to exit.");
