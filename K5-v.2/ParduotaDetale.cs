@@ -12,7 +12,7 @@ namespace K5_v._2
         public string DetalesSaskaitosNr { get; }
         public string DetlesKodas { get; }
         public string DetalesPav { get; }
-        public double DetalesKiekis { get; private set; }
+        public double DetalesKiekis { get; }
         public string DetalesMatas { get; }
         public string DetelesKiekisSuMatu { get; }
         public string DetalesPardavejas { get; }

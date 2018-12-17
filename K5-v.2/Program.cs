@@ -21,15 +21,18 @@ namespace K5_v._2
             List<KomplektoDetale> komplDet_AnaloguSar = new List<KomplektoDetale>();
 
             string path1 = null;
+            Console.WriteLine();
+            Console.WriteLine("1 zingsnis: suformuosime komplektus sudaranciu detaliu-analogu sarasa.");
+            Console.WriteLine();
             Console.WriteLine("Nurodykite kuriame .csv faile saugoma komplektuojancios detales:");
             Console.WriteLine();
 
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    path1 = ofd.FileName;
-                }
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        path1 = ofd.FileName;
+                    }
             }
 
             System.IO.StreamReader reader1 = new System.IO.StreamReader(path1);
@@ -54,15 +57,20 @@ namespace K5_v._2
             Console.WriteLine();
             Console.WriteLine("Bendras komplektu detaliu-analogu sarasas suformuotas.");
             Console.WriteLine();
+            Console.WriteLine("Paspauskite bet kuri klavisa.");
+            Console.ReadLine();
 
             //suformuotas komplektu detaliu-analogu sarasas--------------------------------------------------------------
 
             //sukuriamas komplektu sarasas is parengto komplektu failo
             //atidaromas komplektu failas .csv
 
-            string path = null;
+            Console.WriteLine("2 zingsnis: Suformuosime komplektu sarasa.");
+            Console.WriteLine();
             Console.WriteLine("Nurodykite is kurio .csv failo nuskaityti komplektus:");
             Console.WriteLine();
+
+            string path = null;
 
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
@@ -101,21 +109,25 @@ namespace K5_v._2
             }
 
             KomplektuSarasas komplektaiA = new KomplektuSarasas(pardavejai[0], komplektuSarasasA);
-           // komplektaiA.Isvedimas();
+            komplektaiA.Isvedimas();
 
             Console.WriteLine();
             Console.WriteLine("Komplektu sarasas suformuotas.");
             Console.WriteLine();
+            Console.WriteLine("Paspauskite bet kuri klavisa.");
+            Console.ReadLine();
 
             //suformuotas komplektu sarasas--------------------------------------------------
 
             //Nuskaitomi parduotu detaliu duomenys is csv failo
             //ieskomi parduoti komplektai
 
-            string path2 = null;
-            Console.WriteLine("Nurodykite is kurio failo nuskaityti perduotas detales:");
+            Console.WriteLine("3 zingsnis: Parduotu detaliu ir parduotu komplektu sarasu formavimai.");
+            Console.WriteLine();
+            Console.WriteLine("Nurodykite is kurio failo nuskaityti parduotas detales:");
             Console.WriteLine();
 
+            string path2 = null;
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 if (ofd.ShowDialog() == DialogResult.OK)
@@ -173,7 +185,14 @@ namespace K5_v._2
                 parduotuves.Add(pds);
             }
 
-            //Komplektiskumu skaiciavimai
+            Console.WriteLine();
+            Console.WriteLine("Komplektu saskaitos fakturos suformuotos.");
+            Console.WriteLine();
+            Console.WriteLine("Paspauskite bet kuri klavisa.");
+            Console.ReadLine();
+
+
+            //Komplektiskumu skaiciavimai, duomenu spausdinimas i failus.
 
             foreach (var item in parduotuves)
             {
@@ -183,24 +202,12 @@ namespace K5_v._2
                 Console.WriteLine("Per " + item.PardavejoPavad + " parduota " + item.PardavejoKomplektuSuma + " vnt. komplektu. Komplektiskumas = "
                     +item.PardavejoKomplektuKomplektiskumas);
                 Console.WriteLine();
-                //item.SFisvedimas();
+                item.SFisvedimas();
                 item.Spausdinimas();
             }
 
             //Komplektiskumo skaiciavimo pabaiga-----------------------
             
-
-            //Bandome surasyti dauomenys i faila
-
-
-            
-
-            
-
-            
-
-            
-
 
             
 

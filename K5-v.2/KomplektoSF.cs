@@ -11,7 +11,7 @@ namespace K5_v._2
     {
         public int SFKomplektoNr { get; }
         public string SFKomplektoKodas { get; }
-        public double SFKomplektoKiekis { get; private set; }
+        public double SFKomplektoKiekis { get; }
         public string SFNumeris { get; }
         public List<ParduotaDetale> SFDetales { get; }
         public double SFKomplektiskumas { get; private set; }
